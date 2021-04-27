@@ -11,7 +11,7 @@ HEADER = My_Awesome_PhoneBook.h
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	clang++ $(FLAGS) $(OBJ) -o $(NAME) $(HEADER)
+	clang++ $(FLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
 	clang++ $(FLAGS) -c $< -o $@
