@@ -1,59 +1,142 @@
 #include <iostream>
 #include <string>
+#include <unistd.h>
+#include <iomanip>
+
+class Contact
+{
+	public:
+		std::string info[11];
+		int index;
+};
 
 class PhoneBook
 {
-    public:
-        PhoneBook();
-        void add();
-    private:
-        std::string str[2][11];
+	public:
+		PhoneBook();
+		void add();
+		void out();
+	private:
+		Contact contacts[8];
+		int     i;
+		std::string info_field[11];
 };
 
 PhoneBook::PhoneBook()
 {
-    this->str[0][0] = "First name";
-    this->str[0][1] = "Last name";
-    this->str[0][2] = "Nickname";
-    this->str[0][3] = "Login";
-    this->str[0][4] = "Postal address";
-    this->str[0][5] = "Email address";
-    this->str[0][6] = "Phone number";
-    this->str[0][7] = "Birthday date";
-    this->str[0][8] = "Favorite meal";
-    this->str[0][9] = "Underwear color";
-    this->str[0][10] = "Darkest secret";
+	this->i = 0;
+	this->info_field[0] = "first name";
+	this->info_field[1] = "last name";
+	this->info_field[2] = "nickname";
+	this->info_field[3] = "login";
+	this->info_field[4] = "postal address";
+	this->info_field[5] = "email address";
+	this->info_field[6] = "phone number";
+	this->info_field[7] = "birthday date";
+	this->info_field[8] = "favorite meal";
+	this->info_field[9] = "underwear color";
+	this->info_field[10] = "darkest secret";
+}
+// index, first name, last name and nickname
+
+void    print_line()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << "|----------";
+	}
+	std::cout << "|\n";
+}
+
+void PhoneBook::out()
+{
+	int index = -1;
+	
+	print_line();
+	std::cout << "|" << std::setw(10) << "index";
+	for (int i = 0; i < 3; i++)
+		std::cout << "|" << std::setw(10) << this->info_field[i];
+	std::cout << "|\n";
+	for (int i = 0; i < this->i; i++)
+	{
+		print_line();
+		std::cout << "|" << std::setw(10) << this->contacts[i].index;
+		for (int j = 0; j < 3; j++)
+			std::cout << "|" << std::setw(10) << this->contacts[i].info[j];
+		std::cout << "|\n";
+	}
+	print_line();
+	if (this->i != 0)
+	{
+		while (index < 0 || index > (this->i - 1))
+		{
+			std::cout << "Please enter the index of contact \n->";
+			std::cin >> index;
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore(32767,'\n');
+				index = -1;
+			}
+		}
+		for (int j = 0; j < 11; j++)
+		{
+			std::cout << this->info_field[j] << ": ";
+			std::cout << this->contacts[index].info[j];
+			std::cout << "\n";
+		}
+	}
+	else
+	{
+		for (int j = 0; j < 4; j++)
+			std::cout << "|" << std::setw(10) << "empty";
+		std::cout << "|\n";
+		print_line();
+	}
 }
 
 void PhoneBook::add()
 {
-    for (int i = 0; i < 10; i++)
-    {
-        std::cout << "Enter the" << this->str[0][i];
-        std::cout << "\n";
-        std::cin >> this->str[1][i];
-        std::cout << this->str[1][i];
-        std::cout << "\n";
-    }    
+	if (this->i > 7)
+		std::cout << "Sorry, but I can remember only 8 contacts\n";
+	else
+	{
+		this->contacts[this->i].index = this->i;
+		for (int i = 0; i < 11; i++)
+		{
+			std::cout << "Enter the " << this->info_field[i] << "\n->";
+			std::cin >> this->contacts[this->i].info[i];
+		}
+		this->i++;
+	}
 }
 
 int main()
 {    
-    int i = 0;
-    std::string input;
+	std::string input;
 
-    PhoneBook MyPhoneBook[8];
-    while (1)
-    {
-        std::cin >> input;
-        if (input == "EXIT")
-            exit(0);
-        else if (input == "ADD")
-        {
-            MyPhoneBook[i].add();
-            i++;
-        }
-    }
-//    MyPhoneBook.print();
-    return(0);
+	PhoneBook MyPhoneBook;
+	std::cout << "Hello, this is a crappy awesome phonebook software\n";
+	sleep(1);
+	while (1)
+	{
+		std::cout << "Please enter one of the following command: ADD, SEARCH, EXIT\n->";
+		std::cin >> input;
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(32767,'\n');
+			continue;
+		}
+		else if (input == "EXIT")
+			break;
+		else if (input == "ADD")
+			MyPhoneBook.add();
+		else if (input == "SEARCH")
+			MyPhoneBook.out();
+		else
+			std::cout << '"' << input << '"' << " is not a command, try againg\n";
+	}
+	std::cout << "Good bye\n";;
+	return(0);
 }
