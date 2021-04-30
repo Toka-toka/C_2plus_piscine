@@ -37,7 +37,6 @@ PhoneBook::PhoneBook()
 	this->info_field[9] = "underwear color";
 	this->info_field[10] = "darkest secret";
 }
-// index, first name, last name and nickname
 
 void    print_line()
 {
@@ -60,9 +59,15 @@ void PhoneBook::out()
 	for (int i = 0; i < this->i; i++)
 	{
 		print_line();
-		std::cout << "|" << std::setw(10) << this->contacts[i].index;
+		std::cout << "|" << std::setw(10) << this->contacts[i].index + 1;
 		for (int j = 0; j < 3; j++)
-			std::cout << "|" << std::setw(10) << this->contacts[i].info[j];
+		{
+			std::cout << "|";
+			if (this->contacts[i].info[j].length() > 10)
+    			std::cout << this->contacts[i].info[j].substr(0, 9) << ".";
+			else
+				std::cout << std::setw(10) << this->contacts[i].info[j];
+		}
 		std::cout << "|\n";
 	}
 	print_line();
@@ -72,6 +77,7 @@ void PhoneBook::out()
 		{
 			std::cout << "Please enter the index of contact \n->";
 			std::cin >> index;
+			index--;
 			if (std::cin.fail())
 			{
 				std::cin.clear();
@@ -81,7 +87,7 @@ void PhoneBook::out()
 		}
 		for (int j = 0; j < 11; j++)
 		{
-			std::cout << this->info_field[j] << ": ";
+			std::cout << std::setw(15) << this->info_field[j] << ": ";
 			std::cout << this->contacts[index].info[j];
 			std::cout << "\n";
 		}
@@ -106,6 +112,13 @@ void PhoneBook::add()
 		{
 			std::cout << "Enter the " << this->info_field[i] << "\n->";
 			std::cin >> this->contacts[this->i].info[i];
+			if (std::cin.fail() || this->contacts[this->i].info[i].length() == 0)
+			{
+				std::cin.clear();
+				std::cin.ignore(32767,'\n');
+				std::cout << "Repeate the enter\n";
+				i--;
+			}
 		}
 		this->i++;
 	}
