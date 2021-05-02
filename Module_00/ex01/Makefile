@@ -1,19 +1,19 @@
 NAME = My_Awesome_PhoneBook
 
-SRC = *.cpp
+SRC =	main.cpp PhoneBook.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-HEADER = My_Awesome_PhoneBook.h
+HEADER = PhoneBook.hpp
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	clang++ $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	clang++ $(FLAGS) -c $< -o $@
 
 clean:

@@ -1,26 +1,4 @@
-#include <iostream>
-#include <string>
-#include <unistd.h>
-#include <iomanip>
-
-class Contact
-{
-	public:
-		std::string info[11];
-		int index;
-};
-
-class PhoneBook
-{
-	public:
-		PhoneBook();
-		void add();
-		void out();
-	private:
-		Contact contacts[8];
-		int     i;
-		std::string info_field[11];
-};
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
 {
@@ -38,7 +16,7 @@ PhoneBook::PhoneBook()
 	this->info_field[10] = "darkest secret";
 }
 
-void    print_line()
+void	print_line()
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -47,10 +25,32 @@ void    print_line()
 	std::cout << "|\n";
 }
 
-void PhoneBook::out()
+void	PhoneBook::print_index()
 {
 	int index = -1;
-	
+
+	while (index < 0 || index > (this->i - 1))
+	{
+		std::cout << "Please enter the index of contact \n->";
+		std::cin >> index;
+		index--;
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(32767,'\n');
+			index = -1;
+		}
+		}
+	for (int j = 0; j < 11; j++)
+	{
+		std::cout << std::setw(15) << this->info_field[j] << ": ";
+		std::cout << this->contacts[index].info[j];
+		std::cout << "\n";
+	}
+}
+
+void PhoneBook::out()
+{	
 	print_line();
 	std::cout << "|" << std::setw(10) << "index";
 	for (int i = 0; i < 3; i++)
@@ -71,34 +71,14 @@ void PhoneBook::out()
 		std::cout << "|\n";
 	}
 	print_line();
-	if (this->i != 0)
-	{
-		while (index < 0 || index > (this->i - 1))
-		{
-			std::cout << "Please enter the index of contact \n->";
-			std::cin >> index;
-			index--;
-			if (std::cin.fail())
-			{
-				std::cin.clear();
-				std::cin.ignore(32767,'\n');
-				index = -1;
-			}
-		}
-		for (int j = 0; j < 11; j++)
-		{
-			std::cout << std::setw(15) << this->info_field[j] << ": ";
-			std::cout << this->contacts[index].info[j];
-			std::cout << "\n";
-		}
-	}
-	else
+	if (this->i == 0)
 	{
 		for (int j = 0; j < 4; j++)
-			std::cout << "|" << std::setw(10) << "empty";
+		std::cout << "|" << std::setw(10) << "empty";
 		std::cout << "|\n";
 		print_line();
 	}
+	else this->print_index();
 }
 
 void PhoneBook::add()
@@ -122,34 +102,4 @@ void PhoneBook::add()
 		}
 		this->i++;
 	}
-}
-
-int main()
-{    
-	std::string input;
-
-	PhoneBook MyPhoneBook;
-	std::cout << "Hello, this is a crappy awesome phonebook software\n";
-	sleep(1);
-	while (1)
-	{
-		std::cout << "Please enter one of the following command: ADD, SEARCH, EXIT\n->";
-		std::cin >> input;
-		if (std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore(32767,'\n');
-			continue;
-		}
-		else if (input == "EXIT")
-			break;
-		else if (input == "ADD")
-			MyPhoneBook.add();
-		else if (input == "SEARCH")
-			MyPhoneBook.out();
-		else
-			std::cout << '"' << input << '"' << " is not a command, try againg\n";
-	}
-	std::cout << "Good bye\n";;
-	return(0);
 }
