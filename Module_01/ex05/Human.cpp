@@ -2,7 +2,12 @@
 
 Human::Human()
 {
-    Brain _brain;
+}
+
+const Brain &Human::getBrain()
+{
+    const Brain &reference = this->_brain;
+    return(reference);
 }
 
 std::string Human::identify()

@@ -1,6 +1,6 @@
 #include "Brain.hpp"
 
-const std::string Brain::identify()
+std::string Brain::identify() const
 {
     std::ostringstream str;
     str << (int *)this;

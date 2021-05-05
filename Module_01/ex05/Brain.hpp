@@ -8,6 +8,6 @@
 class Brain 
 {
     public:
-        const std::string identify();
+        std::string identify() const;
 };
 #endif

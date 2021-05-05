@@ -8,6 +8,7 @@ class Human
     const Brain _brain;
     public:
         Human();
+        const Brain &getBrain();
         std::string identify();
 };
 #endif
