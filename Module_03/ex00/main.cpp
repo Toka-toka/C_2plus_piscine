@@ -2,6 +2,8 @@
 
 int        main(void)
 {
+    srand(time(0));
+
     FragTrap Elu("Elu");
     FragTrap Elu1(Elu);
     FragTrap Elu2("None");

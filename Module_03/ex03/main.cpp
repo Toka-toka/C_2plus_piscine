@@ -1,0 +1,35 @@
+#include "NinjaTrap.hpp"
+
+int        main(void)
+{
+    srand(time(0));
+    
+/*    ScavTrap Elu("Elu");
+    ScavTrap Elu2(Elu);
+
+    Elu.meleeAttack("new_target");
+    Elu.rangedAttack("new_target");
+
+    Elu.takeDamage(50);
+    Elu.takeDamage(5);
+    Elu.takeDamage(3);
+    Elu.beRepaired(10);
+    Elu.beRepaired(50);
+    Elu.beRepaired(1000);
+    Elu.takeDamage(120);
+    Elu.takeDamage(100);
+    Elu.beRepaired(1000);
+
+    Elu.challengeNewcomer();
+    Elu.challengeNewcomer();
+    Elu.challengeNewcomer();*/
+    NinjaTrap Ninja1("Ninja1");
+    NinjaTrap Ninja2("Ninja2");
+    FragTrap FragTrap1("FragTrap");
+    ScavTrap ScavTrap1("ScavTrap");
+
+    Ninja1.ninjaShoebox(Ninja2);
+    Ninja1.ninjaShoebox(FragTrap1);
+    Ninja1.ninjaShoebox(ScavTrap1);
+    return (0);
+}
