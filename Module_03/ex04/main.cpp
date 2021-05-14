@@ -23,8 +23,13 @@ int        main(void)
     Elu.challengeNewcomer();
     Elu.challengeNewcomer();
     Elu.challengeNewcomer();*/
-    SuperTrap SuperTrap("Ninja1");
+    SuperTrap SuperTrap("Super");
 
     SuperTrap.vaulthunter_dot_exe("ifdygwrfiwefh");
+
+    NinjaTrap NinjaTrap("Ninja");
+
+    SuperTrap.ninjaShoebox(NinjaTrap);
+    
     return (0);
 }

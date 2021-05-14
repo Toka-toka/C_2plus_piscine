@@ -2,6 +2,8 @@
 
 FragTrap::FragTrap(std::string name): ClapTrap()
 {
+		this->_hit_points = 100;
+		this->_max_hit_points = 100;
 		this->_energy_points = 100;
 		this->_max_energy_points = 100;
 		this->_melee_attack_damage = 30;

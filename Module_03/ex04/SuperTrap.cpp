@@ -1,16 +1,22 @@
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap(std::string name): NinjaTrap("Avatar1"), FragTrap("Avatar2")
+SuperTrap::SuperTrap(std::string name): NinjaTrap("Avatar"), FragTrap("Avatar")
 {
-		this->_energy_points = this->NinjaTrap::_max_energy_points;
-		this->_max_energy_points = this->NinjaTrap::_max_energy_points;
-		this->_melee_attack_damage = 20;
-		this->_ranged_attack_damage = 15;
-		this->_armor_damage_reduction = 3;
-
 		std::cout << "Exemplar of SuperTrap was created from " << this->_name;
 		this->_name = name;
 		std::cout << " and was named " << this->_name << "\n";
+
+		std::cout << "--- / --- / --- / --- / --- \n";
+		std::cout << "hit_points: " << _hit_points << '\n';
+		std::cout << "max_points: " << _max_hit_points << '\n';
+		std::cout << "energy_points: " << _energy_points << '\n';
+		std::cout << "max_energy_points: " << _max_energy_points << '\n';
+		std::cout << "level: " << _level << '\n';
+		std::cout << "name: " << _name << '\n';
+		std::cout << "melee_attack_damage: " << _melee_attack_damage << '\n';
+		std::cout << "ranged_attack_damage: " << _ranged_attack_damage << '\n';
+		std::cout << "armor_damage_reduction: " << _armor_damage_reduction << '\n';
+		std::cout << "--- / --- / --- / --- / --- \n";
 }
 
 SuperTrap::~SuperTrap()

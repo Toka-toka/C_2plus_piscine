@@ -3,8 +3,6 @@
 ClapTrap::ClapTrap(void)
 {
 		this->_name = "Avatar";
-		this->_hit_points = 100;
-		this->_max_hit_points = 100;
 		this->_level = 1;
 		std::cout << "Exemplar of ClapTrap named " << this->_name << " created\n";
 }

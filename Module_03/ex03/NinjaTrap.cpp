@@ -57,7 +57,6 @@ void NinjaTrap::meleeAttack(std::string const & target)
 void NinjaTrap::ninjaShoebox (NinjaTrap &copy)
 {
 	this->meleeAttack(copy.getName());
-//	std::cout << "Reference to NinjaTrap named " << copy.getName() << " is const, and i can't damage it\n";
 	copy.takeDamage(this->_melee_attack_damage);
 }
 

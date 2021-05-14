@@ -2,17 +2,21 @@
 
 NinjaTrap::NinjaTrap(std::string name): ClapTrap()
 {
+	if (name != "Avatar")
+	{
 		this->_hit_points = 60;
 		this->_max_hit_points = 60;
-		this->_energy_points = 120;
-		this->_max_energy_points = 120;
-		this->_melee_attack_damage = 60;
-		this->_ranged_attack_damage = 5;
 		this->_armor_damage_reduction = 0;
-
+		this->_ranged_attack_damage = 5;
 		std::cout << "Exemplar of NinjaTrap was created from " << this->_name;
 		this->_name = name;
 		std::cout << " and was named " << this->_name << "\n";
+	}
+	else
+		std::cout << "Not full exemplar of NinjaTrap-parent was created\n";
+	this->_energy_points = 120;
+	this->_max_energy_points = 120;
+	this->_melee_attack_damage = 60;
 }
 
 NinjaTrap::~NinjaTrap()
@@ -57,7 +61,6 @@ void NinjaTrap::meleeAttack(std::string const & target)
 void NinjaTrap::ninjaShoebox (NinjaTrap &copy)
 {
 	this->meleeAttack(copy.getName());
-//	std::cout << "Reference to NinjaTrap named " << copy.getName() << " is const, and i can't damage it\n";
 	copy.takeDamage(this->_melee_attack_damage);
 }
 
