@@ -4,32 +4,24 @@ int        main(void)
 {
     srand(time(0));
     
-/*    ScavTrap Elu("Elu");
-    ScavTrap Elu2(Elu);
-
-    Elu.meleeAttack("new_target");
-    Elu.rangedAttack("new_target");
-
-    Elu.takeDamage(50);
-    Elu.takeDamage(5);
-    Elu.takeDamage(3);
-    Elu.beRepaired(10);
-    Elu.beRepaired(50);
-    Elu.beRepaired(1000);
-    Elu.takeDamage(120);
-    Elu.takeDamage(100);
-    Elu.beRepaired(1000);
-
-    Elu.challengeNewcomer();
-    Elu.challengeNewcomer();
-    Elu.challengeNewcomer();*/
     SuperTrap SuperTrap("Super");
 
-    SuperTrap.vaulthunter_dot_exe("ifdygwrfiwefh");
+    SuperTrap.meleeAttack("new_target");
+    SuperTrap.rangedAttack("new_target");
 
-    NinjaTrap NinjaTrap("Ninja");
+    SuperTrap.takeDamage(50);
+    SuperTrap.takeDamage(5);
+    SuperTrap.takeDamage(3);
+    SuperTrap.beRepaired(10);
+    SuperTrap.beRepaired(50);
+    SuperTrap.beRepaired(1000);
+    SuperTrap.takeDamage(120);
+    SuperTrap.takeDamage(100);
+    SuperTrap.beRepaired(1000);
 
-    SuperTrap.ninjaShoebox(NinjaTrap);
+    SuperTrap.vaulthunter_dot_exe("Something");
+    SuperTrap.vaulthunter_dot_exe("Something");
+    SuperTrap.vaulthunter_dot_exe("Something");
     
     return (0);
 }

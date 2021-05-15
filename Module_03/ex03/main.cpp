@@ -3,30 +3,29 @@
 int        main(void)
 {
     srand(time(0));
-    
-/*    ScavTrap Elu("Elu");
-    ScavTrap Elu2(Elu);
 
-    Elu.meleeAttack("new_target");
-    Elu.rangedAttack("new_target");
-
-    Elu.takeDamage(50);
-    Elu.takeDamage(5);
-    Elu.takeDamage(3);
-    Elu.beRepaired(10);
-    Elu.beRepaired(50);
-    Elu.beRepaired(1000);
-    Elu.takeDamage(120);
-    Elu.takeDamage(100);
-    Elu.beRepaired(1000);
-
-    Elu.challengeNewcomer();
-    Elu.challengeNewcomer();
-    Elu.challengeNewcomer();*/
     NinjaTrap Ninja1("Ninja1");
+    
+    Ninja1.meleeAttack("new_target");
+    Ninja1.rangedAttack("new_target");
+
+    Ninja1.takeDamage(50);
+    Ninja1.takeDamage(5);
+    Ninja1.takeDamage(3);
+    Ninja1.beRepaired(10);
+    Ninja1.beRepaired(50);
+    Ninja1.beRepaired(1000);
+    Ninja1.takeDamage(120);
+    Ninja1.takeDamage(100);
+    Ninja1.beRepaired(1000);
+
+    std::cout << "--- / --- / --- / --- / --- \n";
+
     NinjaTrap Ninja2("Ninja2");
     FragTrap FragTrap1("FragTrap");
     ScavTrap ScavTrap1("ScavTrap");
+
+    std::cout << "--- / --- / --- / --- / --- \n";
 
     Ninja1.ninjaShoebox(Ninja2);
     Ninja1.ninjaShoebox(FragTrap1);

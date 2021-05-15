@@ -1,6 +1,6 @@
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap(std::string name): NinjaTrap("Avatar"), FragTrap("Avatar")
+SuperTrap::SuperTrap(std::string name): FragTrap("Avatar"), NinjaTrap("Avatar")
 {
 		std::cout << "Exemplar of SuperTrap was created from " << this->_name;
 		this->_name = name;
@@ -24,7 +24,7 @@ SuperTrap::~SuperTrap()
 	std::cout << "SuperTrap " << this->_name << " go to heaven\n";
 }
 
-SuperTrap::SuperTrap(const SuperTrap &copy): NinjaTrap("Avatar1"), FragTrap("Avatar2")
+SuperTrap::SuperTrap(const SuperTrap &copy): FragTrap("Avatar"), NinjaTrap("Avatar")
 {
 	*this = copy;
 	std::cout << "Copy of SuperTrap named " << this->_name << " created\n";

@@ -87,7 +87,7 @@ void FragTrap::beRepaired(unsigned int amount)
 
 void FragTrap::vaulthunter_dot_exe (std :: string const & target)
 {
-	std::string attack_type[5] = {"attack №1", "Attack №2", "Attack №3", "Attack №4", "Attack №5"};
+	std::string attack_type[5] = {"attack №1", "attack №2", "attack №3", "attack №4", "attack №5"};
 	
 	if (this->_energy_points < 25)
 		std::cout << "FR4G-TP named " << this->_name << " doesn't have enough energy for a special attack\n"; 
