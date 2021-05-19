@@ -11,10 +11,8 @@ class AWeapon
 		int _damage;
 	public:
 		AWeapon(std::string const & name, int apcost, int damage);
-//		[...] ~AWeapon();
+		virtual ~AWeapon();
 		AWeapon();
-		~AWeapon();
-
 		AWeapon(const AWeapon &copy);
 		AWeapon	&operator=(const AWeapon &copy);
 		

@@ -9,6 +9,8 @@ AWeapon::AWeapon(std::string const & name, int apcost, int damage)
 
 AWeapon::~AWeapon()
 {
+	std::cout << "Im here im parent\n";
+	delete this;
 }
 
 AWeapon::AWeapon(const AWeapon &copy)

@@ -2,14 +2,15 @@
 # define SUPERMUTANT_HPP
 
 #include <iostream>
+#include "Enemy.hpp"
 
-class SuperMutant
+class SuperMutant: public Enemy
 {
 	public:
 		SuperMutant();
 		SuperMutant(const SuperMutant &copy);
 		~SuperMutant();
 		SuperMutant &operator=(const SuperMutant &copy);
-	private:
+		void takeDamage(int damage);
 };
 #endif

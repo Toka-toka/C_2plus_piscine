@@ -2,14 +2,16 @@
 # define POWERFIST_HPP
 
 #include <iostream>
+#include "AWeapon.hpp"
 
-class PowerFist
+class PowerFist: public AWeapon
 {
 	public:
 		PowerFist();
 		PowerFist(const PowerFist &copy);
 		~PowerFist();
 		PowerFist &operator=(const PowerFist &copy);
+		void attack() const;
 	private:
 };
 #endif
