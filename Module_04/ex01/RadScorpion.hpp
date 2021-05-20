@@ -2,8 +2,9 @@
 # define RADSCORPION_HPP
 
 #include <iostream>
+#include "Enemy.hpp"
 
-class RadScorpion
+class RadScorpion: public Enemy
 {
 	public:
 		RadScorpion();

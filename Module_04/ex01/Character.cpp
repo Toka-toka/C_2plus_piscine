@@ -7,32 +7,28 @@ Character::Character(std::string const & name)
 	_weapon = 0;
 }
 
-Character::Character()
-{
-}
-
-
 Character::~Character()
 {
 }
 
 Character::Character(const Character &copy)
 {
+	*this = copy;
 }
 
 Character	&Character::operator=(const Character &copy)
 {
+	_ap = copy._ap;
+	_name = copy._name;
+	_weapon = copy._weapon;
 	return (*this);
 }
 
 void Character::recoverAP()
 {
-
-}
-
-void Character::attack(Enemy*)
-{
-
+	_ap += 10;
+	if (_ap > 40)
+		_ap = 40;
 }
 
 std::string const Character::getName() const
@@ -52,13 +48,37 @@ std::string const Character::getWeapon() const
 	return("wields a " + _weapon->getName());
 }
 
-std::ostream &operator<<(std::ostream &out, Character const &character)
+int	Character::getAp() const
 {
-	return(out << character.getName() << " has " << 40 << " and " << character.getWeapon() << "\n"); // << character;
+	return(_ap);
 }
 
-/*
+std::ostream &operator<<(std::ostream &out, Character const &character)
+{
+	return(out << character.getName() << " has " << character.getAp() << " AP and " << character.getWeapon() << "\n"); // << character;
+}
+
 void Character::attack(Enemy* ptr)
 {
-	_enemy = ptr;
-}*/
+	if (ptr == 0)
+		std::cout << this->getName() << " attacks air and nothing hapend\n";
+	else if (_weapon == 0)
+		std::cout <<  this->getName() << " try to attack " << ptr->getType() << ", but forgot to take weapon\n";
+	else if(ptr->getHP() == 0)
+		std::cout <<  this->getName() << " try to attack " << ptr->getType() << ", but it's already dead\n";
+	else
+	{
+		int coast = _weapon->getAPCost();
+		if (coast <= _ap)
+		{
+			ptr->takeDamage(_weapon->getDamage());
+			std::cout << this->getName() << " attacks " << ptr->getType() << " with a " << _weapon->getName() << "\n";
+			_weapon->attack();
+			_ap -= coast;
+		}
+		if (ptr->getHP() == 0)
+		{
+			ptr->~Enemy();
+		}
+	}
+}

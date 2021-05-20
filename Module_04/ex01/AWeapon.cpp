@@ -9,8 +9,6 @@ AWeapon::AWeapon(std::string const & name, int apcost, int damage)
 
 AWeapon::~AWeapon()
 {
-	std::cout << "Im here im parent\n";
-	delete this;
 }
 
 AWeapon::AWeapon(const AWeapon &copy)
@@ -20,6 +18,9 @@ AWeapon::AWeapon(const AWeapon &copy)
 
 AWeapon	&AWeapon::operator=(const AWeapon &copy)
 {
+	_name = copy._name;
+	_apcost = copy._apcost;
+	_damage = copy._damage;	
 	return (*this);
 }
 
@@ -36,4 +37,19 @@ int AWeapon::getAPCost() const
 int AWeapon::getDamage() const
 {
 	return(_damage);
+}
+
+void AWeapon::setName(std::string name)
+{
+	_name = name;
+}
+
+void AWeapon::setAPCost(int  ap)
+{
+	_apcost = ap;
+}
+
+void AWeapon::setDamage(int damage)
+{
+	_damage = damage;
 }

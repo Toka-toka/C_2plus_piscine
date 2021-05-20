@@ -10,13 +10,14 @@ SuperMutant::~SuperMutant()
 	std::cout << "Aaargh...\n";
 }
 
-SuperMutant::SuperMutant(const SuperMutant &copy): Enemy(170, "Super Mutant")
+SuperMutant::SuperMutant(const SuperMutant &copy): Enemy(copy.getHP(), copy.getType())
 {
-
 }
 
 SuperMutant	&SuperMutant::operator=(const SuperMutant &copy)
 {
+	this->setHP(copy.getHP());
+	this->setType(copy.getType());
 	return (*this);
 }
 

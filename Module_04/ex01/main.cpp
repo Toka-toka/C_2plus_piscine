@@ -6,34 +6,29 @@
 #include "RadScorpion.hpp"
 #include "Character.hpp"
 
-int		main(void)
+int main()
 {
+	Character* me = new Character("me");
+	std::cout << *me;
+	Enemy* b = new RadScorpion();
 	AWeapon* pr = new PlasmaRifle();
 	AWeapon* pf = new PowerFist();
-	pr->attack();
-	pf->attack();
-
-	Enemy* b = new SuperMutant();
-	
-	std::cout << b->getHP() << "\n";
-	b->takeDamage(10);
-	std::cout << b->getHP() << "\n";
-	b->takeDamage(163);
-	std::cout << b->getHP() << "\n";
-	b->takeDamage(5);
-	std::cout << b->getHP() << "\n";
-	b->takeDamage(5);
-	std::cout << b->getHP() << "\n";
-
-	Character* me = new Character("me");
-
-	
-	
-	std::cout << *me;
-
 	me->equip(pr);
-
+	std::cout << *me;
+	me->equip(pf);
+	me->attack(b);
+	std::cout << *me;
+	me->equip(pr);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+	me->attack(b);
 	std::cout << *me;
 
-	return (0);
+	delete me;
+	delete b;
+	delete pr;
+	delete pf;
+
+	return 0;
 }

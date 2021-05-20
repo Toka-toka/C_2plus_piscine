@@ -11,10 +11,9 @@ class Character
 		std::string _name;
 		int _ap;
 		AWeapon* _weapon;
-		Enemy* _enemy;
+		Character();
 	public:
 		Character(std::string const & name);
-		Character();
 		~Character();
 		Character(const Character &copy);
 		Character	&operator=(const Character &copy);
@@ -23,6 +22,7 @@ class Character
 		void attack(Enemy*);
 		std::string const getWeapon() const;
 		std::string const getName() const;
+		int getAp() const;
 };
 
 std::ostream &operator<<(std::ostream &out, Character const &character);
