@@ -17,6 +17,7 @@ TacticalMarine::TacticalMarine(const TacticalMarine &copy)
 
 TacticalMarine	&TacticalMarine::operator=(const TacticalMarine &copy)
 {
+	(void)copy;
 	return (*this);
 }
 

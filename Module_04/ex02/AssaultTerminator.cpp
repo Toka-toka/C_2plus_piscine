@@ -17,6 +17,7 @@ AssaultTerminator::AssaultTerminator(const AssaultTerminator &copy)
 
 AssaultTerminator	&AssaultTerminator::operator=(const AssaultTerminator &copy)
 {
+	(void)copy;
 	return (*this);
 }
 

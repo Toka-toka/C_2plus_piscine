@@ -8,7 +8,7 @@ class Squad: public ISquad
 {
 	private:
 		ISpaceMarine**	_ptr;
-		size_t			_count;
+		int				_count;
 	public:
 		Squad();
 		Squad(const Squad &copy);

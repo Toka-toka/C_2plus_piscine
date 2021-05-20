@@ -44,14 +44,23 @@ int Squad::getCount() const
 
 ISpaceMarine* Squad::getUnit(int i) const
 {
+	if (i < 0 || i + 1 > _count)
+		return(0);
 	return(_ptr[i]);
 }
 
 int Squad::push(ISpaceMarine* ptr)
 {
+	if (ptr == 0)
+		return(0);
 	ISpaceMarine **copy = new ISpaceMarine * [_count + 1];
 	for (int i = 0 ; i < _count ; i++)
 	{
+		if(ptr == _ptr[i])
+		{
+			delete [] copy;
+			return(0);
+		}
 		copy[i] = _ptr[i];
 	}
 	if (_count != 0)
