@@ -12,10 +12,10 @@ class TacticalMarine: public ISpaceMarine
 		~TacticalMarine();
 		TacticalMarine &operator=(const TacticalMarine &copy);
 
-		TacticalMarine* clone();
-		void battleCry();
-		void rangedAttack();
-		void meleeAttack();
+		ISpaceMarine* clone() const;
+		void battleCry() const;
+		void rangedAttack() const;
+		void meleeAttack() const;
 	private:
 };
 #endif

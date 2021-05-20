@@ -2,14 +2,20 @@
 # define ASSAULTTERMINATOR_HPP
 
 #include <iostream>
+#include "ISpaceMarine.hpp"
 
-class AssaultTerminator
+class AssaultTerminator: public ISpaceMarine
 {
 	public:
 		AssaultTerminator();
 		AssaultTerminator(const AssaultTerminator &copy);
 		~AssaultTerminator();
 		AssaultTerminator &operator=(const AssaultTerminator &copy);
+
+		ISpaceMarine* clone() const;
+		void battleCry() const;
+		void rangedAttack() const;
+		void meleeAttack() const;
 	private:
 };
 #endif
