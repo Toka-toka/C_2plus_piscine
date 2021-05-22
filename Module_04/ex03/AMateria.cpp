@@ -18,7 +18,7 @@ AMateria &AMateria::operator=(const AMateria &copy)
 	return(*this);
 }
 
-virtual AMateria::~AMateria()
+AMateria::~AMateria()
 {
 
 }
@@ -28,12 +28,15 @@ std::string const & AMateria::getType() const
 	return(_type);
 }
 
-unsigned int AMateria::getXP() const;
+unsigned int AMateria::getXP() const
 {
-
+	return(_xp);
 }
 
-virtual void AMateria::use(ICharacter& target)
+void AMateria::use(ICharacter& target)
 {
-
+	if (_xp < (unsigned int)0 - 11)
+		_xp += 10;
+	else
+		_xp = (unsigned int)0 - 1;
 }
