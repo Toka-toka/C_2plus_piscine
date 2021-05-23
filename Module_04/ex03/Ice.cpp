@@ -14,12 +14,13 @@ Ice::Ice(const Ice &copy): AMateria(copy)
 
 Ice	&Ice::operator=(const Ice &copy)
 {
-	return (*this);
+	AMateria::operator=(copy);
+    return (*this);
 }
 
 AMateria* Ice::clone() const
 {
-	AMateria * clone = new Ice();
+	AMateria * clone = new Ice(*this);
 	return(clone);
 }
 

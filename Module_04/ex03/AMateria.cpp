@@ -35,6 +35,7 @@ unsigned int AMateria::getXP() const
 
 void AMateria::use(ICharacter& target)
 {
+	(void)target;
 	if (_xp < (unsigned int)0 - 11)
 		_xp += 10;
 	else

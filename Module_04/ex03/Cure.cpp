@@ -15,6 +15,7 @@ Cure::Cure(const Cure &copy): AMateria(copy)
 
 Cure	&Cure::operator=(const Cure &copy)
 {
+    AMateria::operator=(copy);
 	return (*this);
 }
 
@@ -27,5 +28,5 @@ AMateria* Cure::clone() const
 void Cure::use(ICharacter& target)
 {
 	AMateria::use(target);
-	std::cout << "* heals " << target.getName() << "’s wounds *\n";
+	std::cout << "* heals " << target.getName() << "'s wounds *\n";
 }
