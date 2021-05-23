@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <limits>
+class ICharacter;
 #include "ICharacter.hpp"
 
 class AMateria

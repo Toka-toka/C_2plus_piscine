@@ -2,6 +2,9 @@
 # define MATERIASOURCE_HPP
 
 #include <iostream>
+
+class Amateia;
+#include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
 class MateriaSource: public IMateriaSource

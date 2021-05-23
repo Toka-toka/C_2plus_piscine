@@ -19,12 +19,12 @@ Ice	&Ice::operator=(const Ice &copy)
 
 AMateria* Ice::clone() const
 {
-	AMateria * test = new Ice();
-	return(test);
+	AMateria * clone = new Ice();
+	return(clone);
 }
 
 void Ice::use(ICharacter& target)
 {
 	AMateria::use(target);
-	std::cout << "* shoots an ice bolt at NAME *\n";
+	std::cout << "* shoots an ice bolt at "<< target.getName() << "*\n";
 }
